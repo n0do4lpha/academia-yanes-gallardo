@@ -110,15 +110,15 @@ const TestimonialsSection = () => {
   return (
     <section ref={targetRef} className="section-black snap-anchor" style={{ 
       position: 'relative',
-      height: '300vh', // Increased scrollable room
+      height: '300dvh', // Increased scrollable room
       backgroundColor: 'var(--color-black)'
     }}>
       {/* Internal snap anchors for a longer, more detailed scroll experience */}
       <div className="snap-anchor" style={{ position: 'absolute', top: 0 }} />
-      <div className="snap-anchor" style={{ position: 'absolute', top: '100vh' }} />
-      <div className="snap-anchor" style={{ position: 'absolute', top: '200vh' }} />
+      <div className="snap-anchor" style={{ position: 'absolute', top: '100dvh' }} />
+      <div className="snap-anchor" style={{ position: 'absolute', top: '200dvh' }} />
 
-      <div style={{ position: 'sticky', top: 0, height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden', padding: 'clamp(1rem, 3vh, 5rem) 0' }}>
+      <div style={{ position: 'sticky', top: 0, height: '100dvh', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden', padding: 'clamp(1rem, 3vh, 5rem) 0' }}>
         <div className="container" style={{ marginBottom: 'clamp(1.5rem, 3vh, 3rem)', textAlign: 'center' }}>
           <h2 className="text-large" style={{ color: 'var(--color-pink)' }}>LO QUE DICEN</h2>
         </div>

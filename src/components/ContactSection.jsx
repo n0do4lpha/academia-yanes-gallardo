@@ -13,16 +13,16 @@ const ContactSection = () => {
   const slideX = useTransform(scrollYProgress, [0, 1], ["-100vw", "0vw"]);
 
   return (
-    <section id="contacto" ref={targetRef} className="section-black" style={{ position: 'relative', height: '200vh' }}>
+    <section id="contacto" ref={targetRef} className="section-black" style={{ position: 'relative', height: '200dvh' }}>
       
       {/* Snap anchors to force resting at the start (pre-animation) and end (post-animation) */}
       <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
-        <div className="snap-anchor" style={{ position: 'absolute', top: 0, height: '1vh', width: '100%' }} />
-        {/* We place the bottom anchor at 199vh so the user rests perfectly at the end of the scroll block */}
-        <div className="snap-anchor" style={{ position: 'absolute', top: '199vh', height: '1vh', width: '100%' }} />
+        <div className="snap-anchor" style={{ position: 'absolute', top: 0, height: '1dvh', width: '100%' }} />
+        {/* We place the bottom anchor at 199dvh so the user rests perfectly at the end of the scroll block */}
+        <div className="snap-anchor" style={{ position: 'absolute', top: '199dvh', height: '1dvh', width: '100%' }} />
       </div>
 
-      <div style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ position: 'sticky', top: 0, height: '100dvh', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         
         {/* Background text to fill the black space before the yellow scene slides in */}
         <div style={{ position: 'absolute', inset: 0, zIndex: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '0 5vw' }}>
@@ -54,7 +54,7 @@ const ContactSection = () => {
             flexDirection: 'column',
             justifyContent: 'center',
             width: '100vw',
-            height: '100vh',
+            height: '100dvh',
             padding: 'max(60px, 12vh) 0 5vh 0',
             overflowY: 'auto',
             boxShadow: '-10px 0 50px rgba(0,0,0,0.5)' // add a shadow to make the curtain edge distinct

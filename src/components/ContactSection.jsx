@@ -51,11 +51,13 @@ const ContactSection = () => {
             backgroundColor: 'var(--color-yellow)', 
             color: 'var(--color-black)',
             display: 'flex', 
-            alignItems: 'center',
+            flexDirection: 'column',
+            justifyContent: 'center',
             width: '100vw',
             height: '100vh',
-            padding: '8vw 0 2vw 0',
-            boxShadow: '-10px 0 50px rgba(0,0,0,0.5)' // add a small shadow to make the curtain edge distinct
+            padding: 'max(60px, 12vh) 0 5vh 0',
+            overflowY: 'auto',
+            boxShadow: '-10px 0 50px rgba(0,0,0,0.5)' // add a shadow to make the curtain edge distinct
           }}
         >
           <div className="container" style={{ width: '100%' }}>

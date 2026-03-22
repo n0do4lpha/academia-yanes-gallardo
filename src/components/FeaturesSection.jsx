@@ -57,20 +57,32 @@ const FeaturesSection = () => {
               padding: '0 5vw' 
             }}>
                
-               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'clamp(1.5rem, 4vh, 4rem)', alignItems: 'center', width: '100%', maxWidth: '1600px' }}>
+               <div style={{ 
+                 display: 'flex', 
+                 flexWrap: 'wrap-reverse', 
+                 gap: 'clamp(1rem, 3vh, 3rem)', 
+                 alignItems: 'center', 
+                 width: '100%', 
+                 maxWidth: '1600px' 
+               }}>
                   
-                  <div style={{ flex: '1 1 400px' }}>
-                     <h2 className="text-body" style={{ color: 'var(--color-black)', marginBottom: '1rem', fontWeight: 800 }}>POR QUÉ NOSOTROS — 0{idx + 1}</h2>
-                     <h3 className="text-huge" style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: 'var(--color-black)' }}>
-                       {feature.title.split(' ').map((word, i) => <span key={i} style={{display: 'block'}}>{word}</span>)}
+                  <div style={{ flex: '1 1 300px' }}>
+                     <h2 className="text-body" style={{ color: 'var(--color-black)', marginBottom: '0.5rem', fontWeight: 800, fontSize: '0.9rem' }}>POR QUÉ NOSOTROS — 0{idx + 1}</h2>
+                     <h3 className="text-huge" style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)', color: 'var(--color-black)' }}>
+                       {feature.title.split(' ').map((word, i) => <span key={i} style={{display: 'inline-block', marginRight: '0.5rem'}}>{word}</span>)}
                      </h3>
-                     <p className="text-body" style={{ color: 'var(--color-black)', fontSize: '1.25rem', marginTop: 'clamp(0.5rem, 2vh, 2rem)', maxWidth: '500px' }}>
+                     <p className="text-body" style={{ color: 'var(--color-black)', fontSize: 'clamp(1rem, 2vw, 1.25rem)', marginTop: '0.5rem', maxWidth: '500px' }}>
                        {feature.desc}
                      </p>
                   </div>
 
                   {/* Feature Image with subtle parallax */}
-                  <div style={{ flex: '1 1 400px', height: '60vh', overflow: 'hidden', position: 'relative' }}>
+                  <div style={{ 
+                    flex: '1 1 300px', 
+                    height: 'clamp(200px, 40vh, 55vh)', // More compact on mobile
+                    overflow: 'hidden', 
+                    position: 'relative' 
+                  }}>
                      <img 
                        src={feature.image} 
                        alt={feature.title} 

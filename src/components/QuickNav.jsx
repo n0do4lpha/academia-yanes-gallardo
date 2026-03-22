@@ -45,7 +45,7 @@ const QuickNav = () => {
 
   const buttonBaseStyle = {
     position: 'fixed',
-    top: '1.5rem',
+    top: 'max(1.5rem, calc(env(safe-area-inset-top) + 1rem))', // Shifted for iPhone notch
     zIndex: 1000,
     background: 'rgba(255, 255, 255, 0.1)',
     backdropFilter: 'blur(10px)',

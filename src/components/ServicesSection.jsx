@@ -53,8 +53,8 @@ const ServicesSection = () => {
           transition={{ type: 'spring', damping: 15 }}
           style={{ marginBottom: '3rem', textAlign: 'center' }}
         >
-          <h2 className="text-large" style={{ color: 'var(--color-pink)' }}>¿QUÉ HACEMOS?</h2>
-          <p className="text-body" style={{ color: 'var(--color-white)', opacity: 0.8, marginTop: '1rem', maxWidth: '600px', margin: '1rem auto 0' }}>
+          <h2 className="text-large" style={{ color: 'var(--color-pink)', fontSize: 'clamp(1.8rem, 6vw, 3.5rem)' }}>¿QUÉ HACEMOS?</h2>
+          <p className="text-body" style={{ color: 'var(--color-white)', opacity: 0.8, marginTop: '1rem', maxWidth: '600px', margin: '1rem auto 0', fontSize: 'clamp(0.9rem, 1.5vw, 1.25rem)' }}>
             Aprende con los mejores. Especialízate en el sector de la belleza con una propuesta formativa 100% práctica y dinámica.
           </p>
         </motion.div>
@@ -69,10 +69,10 @@ const ServicesSection = () => {
           {services.map((service) => (
             <motion.div key={service.id} variants={itemVariants} className="card-service">
               <div style={{ marginBottom: '1rem' }}>{service.icon}</div>
-              <h3 className="text-body" style={{ fontSize: '1.5rem', fontFamily: 'var(--font-display)', color: 'var(--color-white)' }}>
+              <h3 className="text-body" style={{ fontSize: 'clamp(1.2rem, 3vw, 1.5rem)', fontFamily: 'var(--font-display)', color: 'var(--color-white)' }}>
                 {service.title}
               </h3>
-              <p className="text-body" style={{ color: 'var(--color-white)', opacity: 0.7 }}>
+              <p className="text-body" style={{ color: 'var(--color-white)', opacity: 0.7, fontSize: 'clamp(0.85rem, 1.8vw, 1rem)' }}>
                 {service.description}
               </p>
             </motion.div>

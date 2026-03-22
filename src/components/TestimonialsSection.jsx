@@ -100,12 +100,10 @@ const TestimonialsSection = () => {
   const { scrollYProgress } = useScroll({ target: targetRef });
 
   // Each row now has its OWN unique starting offset and range for a "loose" feel
-  // Row 1: Starts at -32% (around card 5) and moves right
-  const speedRow1 = useTransform(scrollYProgress, [0, 1], ['-32%', '-20%']); 
-  // Row 2: Starts at -12% (around card 2) and moves left
-  const speedRow2 = useTransform(scrollYProgress, [0, 1], ['-12%', '-28%']);
-  // Row 3: Starts at -45% (around card 7) and moves right
-  const speedRow3 = useTransform(scrollYProgress, [0, 1], ['-45%', '-25%']);
+  // Increased ranges to ensure cards have more room to move without overlapping or stalling
+  const speedRow1 = useTransform(scrollYProgress, [0, 1], ['-35%', '-15%']); 
+  const speedRow2 = useTransform(scrollYProgress, [0, 1], ['-10%', '-30%']);
+  const speedRow3 = useTransform(scrollYProgress, [0, 1], ['-40%', '-20%']);
 
   return (
     <section ref={targetRef} className="section-black snap-anchor" style={{ 
@@ -118,32 +116,32 @@ const TestimonialsSection = () => {
       <div className="snap-anchor" style={{ position: 'absolute', top: '100dvh' }} />
       <div className="snap-anchor" style={{ position: 'absolute', top: '200dvh' }} />
 
-      <div style={{ position: 'sticky', top: 0, height: '100dvh', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden', padding: 'clamp(1rem, 3vh, 5rem) 0' }}>
-        <div className="container" style={{ marginBottom: 'clamp(1.5rem, 3vh, 3rem)', textAlign: 'center' }}>
+      <div style={{ position: 'sticky', top: 0, height: '100dvh', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden', padding: '1rem 0' }}>
+        <div className="container" style={{ marginBottom: 'clamp(1rem, 3vh, 2rem)', textAlign: 'center' }}>
           <h2 className="text-large" style={{ color: 'var(--color-pink)' }}>LO QUE DICEN</h2>
         </div>
 
         <div style={{ 
           display: 'flex', 
           flexDirection: 'column', 
-          gap: 'clamp(1rem, 2vh, 2rem)',
-          paddingTop: '15px',    // prevents the top scale hover from being clipped
-          paddingBottom: '15px', // gives room for the card's drop shadow and triangle pointer
-          WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
-          maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
+          gap: 'clamp(1rem, 1.5vh, 1.5rem)',
+          paddingTop: '20px',
+          paddingBottom: '20px',
+          WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+          maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
         }}>
           {/* ROW 1: Unique speed and start point */}
-          <motion.div style={{ display: 'flex', gap: '1rem', width: 'max-content', x: speedRow1, paddingBottom: '10px' }}>
+          <motion.div style={{ display: 'flex', gap: '2rem', width: 'max-content', x: speedRow1 }}>
             {row1.map(t => <TestimonialCard key={t.id} t={t} />)}
           </motion.div>
 
           {/* ROW 2: Unique speed and start point */}
-          <motion.div style={{ display: 'flex', gap: '1rem', width: 'max-content', x: speedRow2, paddingBottom: '10px' }}>
+          <motion.div style={{ display: 'flex', gap: '2rem', width: 'max-content', x: speedRow2 }}>
             {row2.map(t => <TestimonialCard key={t.id} t={t} />)}
           </motion.div>
 
           {/* ROW 3: Unique speed and start point (Hidden on Desktop) */}
-          <motion.div className="mobile-only-row" style={{ display: 'flex', gap: '1rem', width: 'max-content', x: speedRow3, paddingBottom: '10px' }}>
+          <motion.div className="mobile-only-row" style={{ display: 'flex', gap: '2rem', width: 'max-content', x: speedRow3 }}>
             {row3.map(t => <TestimonialCard key={t.id} t={t} />)}
           </motion.div>
         </div>

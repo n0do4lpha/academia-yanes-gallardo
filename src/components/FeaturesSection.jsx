@@ -45,7 +45,7 @@ const FeaturesSection = () => {
       <div style={{ position: 'sticky', top: 0, height: '100dvh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
         
         {/* Animated horizontal track moving based on scrolling */}
-        <motion.div style={{ x, display: 'flex', width: '300vw', height: '100%' }}>
+         <motion.div style={{ x, display: 'flex', width: '300vw', height: '100%', paddingTop: 'env(safe-area-inset-top)' }}>
           
           {features.map((feature, idx) => (
             <div key={idx} style={{ 
@@ -54,24 +54,25 @@ const FeaturesSection = () => {
               display: 'flex', 
               alignItems: 'center', 
               justifyContent: 'center', 
-              padding: '0 5vw' 
+              padding: '0 1.25rem' 
             }}>
                
                <div style={{ 
                  display: 'flex', 
                  flexWrap: 'wrap-reverse', 
-                 gap: 'clamp(1rem, 3vh, 3rem)', 
+                 gap: 'clamp(1rem, 2vh, 2rem)', 
                  alignItems: 'center', 
                  width: '100%', 
-                 maxWidth: '1600px' 
+                 maxWidth: '1400px',
+                 paddingTop: '2rem' 
                }}>
                   
                   <div style={{ flex: '1 1 300px' }}>
-                     <h2 className="text-body" style={{ color: 'var(--color-black)', marginBottom: '0.5rem', fontWeight: 800, fontSize: '0.9rem' }}>POR QUÉ NOSOTROS — 0{idx + 1}</h2>
-                     <h3 className="text-huge" style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)', color: 'var(--color-black)' }}>
-                       {feature.title.split(' ').map((word, i) => <span key={i} style={{display: 'inline-block', marginRight: '0.5rem'}}>{word}</span>)}
+                     <h2 className="text-body" style={{ color: 'var(--color-black)', marginBottom: '0.25rem', fontWeight: 800, fontSize: '0.85rem', opacity: 0.6 }}>POR QUÉ NOSOTROS — 0{idx + 1}</h2>
+                     <h3 className="text-huge" style={{ fontSize: 'clamp(2.2rem, 7vw, 5rem)', color: 'var(--color-black)', lineHeight: 1 }}>
+                       {feature.title}
                      </h3>
-                     <p className="text-body" style={{ color: 'var(--color-black)', fontSize: 'clamp(1rem, 2vw, 1.25rem)', marginTop: '0.5rem', maxWidth: '500px' }}>
+                     <p className="text-body" style={{ color: 'var(--color-black)', fontSize: 'clamp(0.95rem, 2vw, 1.15rem)', marginTop: '0.5rem', maxWidth: '450px', opacity: 0.8 }}>
                        {feature.desc}
                      </p>
                   </div>
@@ -79,9 +80,11 @@ const FeaturesSection = () => {
                   {/* Feature Image with subtle parallax */}
                   <div style={{ 
                     flex: '1 1 300px', 
-                    height: 'clamp(200px, 40vh, 55vh)', // More compact on mobile
+                    height: 'clamp(180px, 32vh, 45vh)', // More compact on mobile
+                    width: '100%',
                     overflow: 'hidden', 
-                    position: 'relative' 
+                    position: 'relative',
+                    borderRadius: '4px'
                   }}>
                      <img 
                        src={feature.image} 
@@ -89,7 +92,7 @@ const FeaturesSection = () => {
                        style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: feature.position || 'center' }} 
                      />
                      {/* Overlay for aesthetic */}
-                     <div style={{ position: 'absolute', inset: 0, border: '4px solid var(--color-black)', pointerEvents: 'none' }}></div>
+                     <div style={{ position: 'absolute', inset: 0, border: '6px solid var(--color-black)', pointerEvents: 'none' }}></div>
                   </div>
 
                </div>

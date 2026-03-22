@@ -52,20 +52,20 @@ const ContactSection = () => {
             color: 'var(--color-black)',
             display: 'flex', 
             flexDirection: 'column',
-            justifyContent: 'center',
             width: '100vw',
             height: '100dvh',
-            padding: 'max(60px, 12vh) 0 5vh 0',
+            padding: 'max(60px, 10vh) 0 5vh 0', // Adjusted safe top
             overflowY: 'auto',
-            boxShadow: '-10px 0 50px rgba(0,0,0,0.5)' // add a shadow to make the curtain edge distinct
+            WebkitOverflowScrolling: 'touch',
+            boxShadow: '-10px 0 50px rgba(0,0,0,0.5)'
           }}
         >
-          <div className="container" style={{ width: '100%' }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4rem' }}>
+          <div className="container safe-bottom" style={{ width: '100%', paddingBottom: 'max(2rem, env(safe-area-inset-bottom))' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'clamp(2rem, 5vh, 4rem)' }}>
               
               <div style={{ flex: '1 1 400px' }}>
-                <h2 className="text-large" style={{ color: 'var(--color-black)', marginBottom: '2rem' }}>¿EMPEZAMOS?</h2>
-                <p className="text-body" style={{ color: 'var(--color-black)', opacity: 0.8, marginBottom: '2rem' }}>
+                <h2 className="text-large" style={{ color: 'var(--color-black)', marginBottom: '1.5rem', fontSize: 'clamp(2rem, 8vw, 3.5rem)' }}>¿EMPEZAMOS?</h2>
+                <p className="text-body" style={{ color: 'var(--color-black)', opacity: 0.8, marginBottom: '2rem', fontSize: '1rem' }}>
                   Facilítanos tus datos y nos pondremos en contacto contigo lo antes posible.
                 </p>
                 <form style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -78,7 +78,7 @@ const ContactSection = () => {
                       alignSelf: 'flex-start', 
                       border: '2px solid var(--color-black)', 
                       cursor: 'pointer', 
-                      marginTop: '1rem' 
+                      marginTop: '0.5rem' 
                     }}
                   >
                     ENVIAR
@@ -140,9 +140,9 @@ const inputStyle = {
   border: 'none',
   borderBottom: '2px solid var(--color-black)',
   color: 'var(--color-black)',
-  padding: '1rem 0',
+  padding: '0.75rem 0',
   fontFamily: 'var(--font-display)',
-  fontSize: '1.5rem',
+  fontSize: 'clamp(1.2rem, 4vw, 1.5rem)',
   outline: 'none',
   width: '100%',
   transition: 'border-color 0.3s'

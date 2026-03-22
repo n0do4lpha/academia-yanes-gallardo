@@ -12,18 +12,17 @@ const QuickNav = () => {
       const totalHeight = document.documentElement.scrollHeight;
       
       const contactEl = document.getElementById('contacto');
-      // Calculate where the contact section effectively starts
       const contactTop = contactEl ? contactEl.offsetTop : totalHeight;
 
-      // Home button is visible any time we scroll down more than 300px
-      setShowHome(scrollPos > 300);
+      // Home button is visible scroll > 300px BUT hides 
+      // when we are right in the contact section to avoid overlap with its UI
+      setShowHome(scrollPos > 300 && scrollPos < contactTop + 100);
 
-      // Contact button is visible if we are down more than 300px 
-      // AND we haven't reached the contact section yet.
-      // We subtract 300px from contactTop to make it disappear right as they reach it
-      setShowContact(scrollPos > 300 && scrollPos < contactTop - 300);
+      // Contact button logic
+      setShowContact(scrollPos > 300 && scrollPos < contactTop - 200);
     };
 
+    toggleVisibility();
     window.addEventListener('scroll', toggleVisibility);
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
@@ -35,30 +34,28 @@ const QuickNav = () => {
   const scrollToContact = () => {
     const contactSection = document.getElementById('contacto');
     if (contactSection) {
-      const targetPos = contactSection.offsetTop + window.innerHeight;
-      window.scrollTo({
-        top: targetPos,
-        behavior: 'smooth'
-      });
+      // Direct jump to contact for mobile smoothness
+      contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   const buttonBaseStyle = {
     position: 'fixed',
-    top: 'max(1.5rem, calc(env(safe-area-inset-top) + 1rem))', // Shifted for iPhone notch
+    top: 'max(1rem, calc(env(safe-area-inset-top) + 0.5rem))',
     zIndex: 1000,
     background: 'rgba(255, 255, 255, 0.1)',
-    backdropFilter: 'blur(10px)',
+    backdropFilter: 'blur(12px)',
+    WebkitBackdropFilter: 'blur(12px)',
     border: '1px solid rgba(255, 255, 255, 0.2)',
     borderRadius: '50%',
-    width: '40px',
-    height: '40px',
+    width: '44px', // Slightly larger for better tap target
+    height: '44px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     cursor: 'pointer',
-    boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
-    transition: 'background 0.3s, color 0.3s'
+    boxShadow: '0 8px 20px rgba(0,0,0,0.4)',
+    transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
   };
 
   return (

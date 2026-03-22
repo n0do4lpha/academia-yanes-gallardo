@@ -223,11 +223,29 @@ img, video {
 
 @media (max-width: 768px) {
   .container {
-    padding: 0 8vw;
+    padding: 0 1.5rem; /* Better fit for iPhone 12/13/14 */
   }
   
   .text-huge {
-    line-height: 0.95;
-    letter-spacing: -0.01em;
+    font-size: clamp(3.2rem, 16vw, 4.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.015em;
+  }
+
+  .text-large {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+
+  /* Compact padding for snap-sections on small screens */
+  .section-black, .section-pink {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* Specific fix for notched iPhones landscape/portrait */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .hero-container {
+    padding-top: env(safe-area-inset-top);
   }
 }

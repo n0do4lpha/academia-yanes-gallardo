@@ -54,13 +54,23 @@ const HeroSection = () => {
           variants={sentence}
           initial="hidden"
           animate="visible"
-          style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '3rem' }}
+          style={{ 
+            textAlign: 'center', 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: 'clamp(0.1rem, 1vh, 0.5rem)', 
+            marginBottom: 'clamp(1.5rem, 5vh, 3rem)' 
+          }}
         >
           {['ACADEMIA', 'YANES', 'GALLARDO'].map((word, wordIndex) => (
             <div key={wordIndex} style={{ overflow: 'hidden' }}>
               <motion.h1 
                 className="text-huge" 
-                style={{ color: 'var(--color-pink)', display: 'inline-block' }}
+                style={{ 
+                  color: 'var(--color-pink)', 
+                  display: 'inline-block',
+                  fontSize: 'clamp(2.5rem, 14vw, 15rem)' // Slightly more aggressive on mobile
+                }}
                 variants={letterAnim}
               >
                 {word}
@@ -76,13 +86,14 @@ const HeroSection = () => {
             color: 'var(--color-white)',
             opacity: 0.85,
             textAlign: 'center',
-            maxWidth: '450px',
-            marginBottom: '3rem',
+            maxWidth: '380px', // More narrow for mobile
+            marginBottom: 'clamp(2rem, 6vh, 4rem)',
             fontFamily: 'var(--font-primary)',
-            fontSize: 'clamp(1rem, 3vw, 1.25rem)',
+            fontSize: 'clamp(0.85rem, 3.5vw, 1rem)', // Smaller on mobile
             fontWeight: 500,
             lineHeight: 1.4,
             letterSpacing: '0.05em',
+            padding: '0 1rem',
             textTransform: 'uppercase'
           }}
         >

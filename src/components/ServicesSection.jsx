@@ -44,17 +44,32 @@ const itemVariants = {
 
 const ServicesSection = () => {
   return (
-    <section className="section-black snap-anchor" style={{ padding: '10vw 0', minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
-      <div className="container">
+    <section className="section-black snap-anchor" style={{ 
+      padding: window.innerWidth < 768 ? '5rem 0' : '10vw 0', 
+      minHeight: '100vh', 
+      display: 'flex', 
+      alignItems: 'center' 
+    }}>
+      <div className="container" style={{ width: '100%' }}>
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ type: 'spring', damping: 15 }}
-          style={{ marginBottom: '3rem', textAlign: 'center' }}
+          style={{ 
+            marginBottom: window.innerWidth < 768 ? '2rem' : '3rem', 
+            textAlign: 'center' 
+          }}
         >
           <h2 className="text-large" style={{ color: 'var(--color-pink)' }}>¿QUÉ HACEMOS?</h2>
-          <p className="text-body" style={{ color: 'var(--color-white)', opacity: 0.8, marginTop: '1rem', maxWidth: '600px', margin: '1rem auto 0' }}>
+          <p className="text-body" style={{ 
+            color: 'var(--color-white)', 
+            opacity: 0.8, 
+            marginTop: '0.75rem', 
+            maxWidth: '600px', 
+            margin: '0.75rem auto 0',
+            fontSize: 'clamp(0.9rem, 1.1rem, 1.25rem)'
+          }}>
             Aprende con los mejores. Especialízate en el sector de la belleza con una propuesta formativa 100% práctica y dinámica.
           </p>
         </motion.div>
@@ -67,12 +82,12 @@ const ServicesSection = () => {
           className="services-grid"
         >
           {services.map((service) => (
-            <motion.div key={service.id} variants={itemVariants} className="card-service">
-              <div style={{ marginBottom: '1rem' }}>{service.icon}</div>
-              <h3 className="text-body" style={{ fontSize: '1.5rem', fontFamily: 'var(--font-display)', color: 'var(--color-white)' }}>
+            <motion.div key={service.id} variants={itemVariants} className="card-service" style={{ padding: window.innerWidth < 768 ? '2rem 1.5rem' : '3rem 2rem' }}>
+              <div style={{ marginBottom: '0.75rem' }}>{React.cloneElement(service.icon, { size: window.innerWidth < 768 ? 32 : 40 })}</div>
+              <h3 className="text-body" style={{ fontSize: '1.25rem', fontFamily: 'var(--font-display)', color: 'var(--color-white)', marginBottom: '0.5rem' }}>
                 {service.title}
               </h3>
-              <p className="text-body" style={{ color: 'var(--color-white)', opacity: 0.7 }}>
+              <p className="text-body" style={{ color: 'var(--color-white)', opacity: 0.7, fontSize: '0.95rem' }}>
                 {service.description}
               </p>
             </motion.div>

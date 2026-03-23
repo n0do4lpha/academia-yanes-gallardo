@@ -57,30 +57,47 @@ const FeaturesSection = () => {
               padding: '0 5vw' 
             }}>
                
-               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'clamp(1.5rem, 4vh, 4rem)', alignItems: 'center', width: '100%', maxWidth: '1600px' }}>
-                  
-                  <div style={{ flex: '1 1 400px' }}>
-                     <h2 className="text-body" style={{ color: 'var(--color-black)', marginBottom: '1rem', fontWeight: 800 }}>POR QUÉ NOSOTROS — 0{idx + 1}</h2>
-                     <h3 className="text-huge" style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', color: 'var(--color-black)' }}>
-                       {feature.title.split(' ').map((word, i) => <span key={i} style={{display: 'block'}}>{word}</span>)}
-                     </h3>
-                     <p className="text-body" style={{ color: 'var(--color-black)', fontSize: '1.25rem', marginTop: 'clamp(0.5rem, 2vh, 2rem)', maxWidth: '500px' }}>
-                       {feature.desc}
-                     </p>
-                  </div>
+               <div style={{ 
+                  display: 'flex', 
+                  flexDirection: window.innerWidth < 768 ? 'column' : 'row',
+                  gap: 'clamp(1rem, 3vh, 4rem)', 
+                  alignItems: 'center', 
+                  width: '100%', 
+                  maxWidth: '1600px',
+                  justifyContent: 'center'
+                }}>
+                   
+                   <div style={{ 
+                     flex: window.innerWidth < 768 ? 'none' : '1 1 400px',
+                     textAlign: window.innerWidth < 768 ? 'center' : 'left'
+                   }}>
+                      <h2 className="text-body" style={{ color: 'var(--color-black)', marginBottom: '0.5rem', fontWeight: 800, fontSize: '0.8rem' }}>POR QUÉ NOSOTROS — 0{idx + 1}</h2>
+                      <h3 className="text-huge" style={{ fontSize: 'clamp(2.5rem, 10vw, 6rem)', color: 'var(--color-black)' }}>
+                        {window.innerWidth < 768 ? feature.title : feature.title.split(' ').map((word, i) => <span key={i} style={{display: 'block'}}>{word}</span>)}
+                      </h3>
+                      <p className="text-body" style={{ color: 'var(--color-black)', fontSize: 'clamp(0.9rem, 1.25rem, 1.25rem)', marginTop: 'clamp(0.5rem, 2vh, 2rem)', maxWidth: '500px' }}>
+                        {feature.desc}
+                      </p>
+                   </div>
 
-                  {/* Feature Image with subtle parallax */}
-                  <div style={{ flex: '1 1 400px', height: '60vh', overflow: 'hidden', position: 'relative' }}>
-                     <img 
-                       src={feature.image} 
-                       alt={feature.title} 
-                       style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: feature.position || 'center' }} 
-                     />
-                     {/* Overlay for aesthetic */}
-                     <div style={{ position: 'absolute', inset: 0, border: '4px solid var(--color-black)', pointerEvents: 'none' }}></div>
-                  </div>
+                   {/* Feature Image with tighter mobile padding */}
+                   <div style={{ 
+                     flex: window.innerWidth < 768 ? 'none' : '1 1 400px', 
+                     width: window.innerWidth < 768 ? '85vw' : 'auto',
+                     height: window.innerWidth < 768 ? '35vh' : '60vh', 
+                     overflow: 'hidden', 
+                     position: 'relative' 
+                   }}>
+                      <img 
+                        src={feature.image} 
+                        alt={feature.title} 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: feature.position || 'center' }} 
+                      />
+                      {/* Overlay for aesthetic */}
+                      <div style={{ position: 'absolute', inset: 0, border: '4px solid var(--color-black)', pointerEvents: 'none' }}></div>
+                   </div>
 
-               </div>
+                </div>
             </div>
           ))}
           

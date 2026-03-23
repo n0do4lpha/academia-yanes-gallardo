@@ -130,20 +130,21 @@ const TestimonialsSection = () => {
           paddingTop: '15px',    // prevents the top scale hover from being clipped
           paddingBottom: '15px', // gives room for the card's drop shadow and triangle pointer
           WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
-          maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
+          maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
+          position: 'relative'
         }}>
           {/* ROW 1: Unique speed and start point */}
-          <motion.div style={{ display: 'flex', gap: '1rem', width: 'max-content', x: speedRow1, paddingBottom: '10px' }}>
+          <motion.div style={{ display: 'flex', gap: '1.5rem', width: 'max-content', x: speedRow1, paddingBottom: '10px', position: 'relative', paddingLeft: '15vw', paddingRight: '15vw', overflow: 'visible' }}>
             {row1.map(t => <TestimonialCard key={t.id} t={t} />)}
           </motion.div>
 
           {/* ROW 2: Unique speed and start point */}
-          <motion.div style={{ display: 'flex', gap: '1rem', width: 'max-content', x: speedRow2, paddingBottom: '10px' }}>
+          <motion.div style={{ display: 'flex', gap: '1.5rem', width: 'max-content', x: speedRow2, paddingBottom: '10px', position: 'relative', paddingLeft: '15vw', paddingRight: '15vw', overflow: 'visible' }}>
             {row2.map(t => <TestimonialCard key={t.id} t={t} />)}
           </motion.div>
 
           {/* ROW 3: Unique speed and start point (Hidden on Desktop) */}
-          <motion.div className="mobile-only-row" style={{ display: 'flex', gap: '1rem', width: 'max-content', x: speedRow3, paddingBottom: '10px' }}>
+          <motion.div className="mobile-only-row" style={{ display: 'flex', gap: '1.5rem', width: 'max-content', x: speedRow3, paddingBottom: '10px', position: 'relative', paddingLeft: '15vw', paddingRight: '15vw', overflow: 'visible' }}>
             {row3.map(t => <TestimonialCard key={t.id} t={t} />)}
           </motion.div>
         </div>

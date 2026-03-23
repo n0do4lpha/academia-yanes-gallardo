@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const instaPosts = [
@@ -15,9 +15,9 @@ const instaPosts = [
 
 const InstagramSection = () => {
   const targetRef = useRef(null);
-  const [isDesktop, setIsDesktop] = React.useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const checkSize = () => setIsDesktop(window.innerWidth >= 1024);
     checkSize();
     window.addEventListener('resize', checkSize);
@@ -64,8 +64,8 @@ const InstagramSection = () => {
         </div>
         
         {/* Horizontal Track Container */}
-        <div style={{ width: '100vw', overflow: 'hidden', marginBottom: 'clamp(1rem, 4vh, 3rem)' }}>
-          <motion.div style={{ x, display: 'flex', gap: '5vw', padding: '0 5vw', height: 'clamp(300px, 60dvh, 500px)', width: 'max-content' }}>
+        <div style={{ width: '100vw', overflow: 'hidden', marginBottom: 'clamp(1rem, 4vh, 3rem)', position: 'relative' }}>
+          <motion.div style={{ x, display: 'flex', gap: '5vw', padding: '0 5vw', height: 'clamp(300px, 60dvh, 500px)', width: 'max-content', position: 'relative' }}>
             {instaPosts.map((src, idx) => (
               <motion.a 
                 href="https://instagram.com/academiayanesgallardo1" target="_blank" rel="noopener noreferrer"

@@ -42,10 +42,10 @@ const FeaturesSection = () => {
       </div>
       
       {/* Sticky container locks the viewport while scrolling the tall container */}
-      <div style={{ position: 'sticky', top: 0, height: '100dvh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
+      <div style={{ position: 'sticky', top: 0, height: '100dvh', display: 'flex', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
         
         {/* Animated horizontal track moving based on scrolling */}
-        <motion.div style={{ x, display: 'flex', width: '300vw', height: '100%' }}>
+        <motion.div style={{ x, display: 'flex', width: '300vw', height: '100%', position: 'relative' }}>
           
           {features.map((feature, idx) => (
             <div key={idx} style={{ 

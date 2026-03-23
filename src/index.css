@@ -50,16 +50,22 @@ img, video {
 .section-black {
   background-color: var(--color-black);
   color: var(--color-pink);
+  position: relative;
+  overflow-x: clip;
 }
 
 .section-pink {
   background-color: var(--color-pink);
   color: var(--color-black);
+  position: relative;
+  overflow-x: clip;
 }
 
 .section-white {
   background-color: var(--color-white);
   color: var(--color-black);
+  position: relative;
+  overflow-x: clip;
 }
 
 .snap-anchor {
@@ -116,6 +122,7 @@ img, video {
   max-width: 1600px;
   margin: 0 auto;
   padding: 0 max(var(--spacing-mobile), 5vw);
+  position: relative;
 }
 
 .flex-center {

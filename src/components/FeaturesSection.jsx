@@ -70,7 +70,7 @@ const FeaturesSection = () => {
                   </div>
 
                   {/* Feature Image with subtle parallax */}
-                  <div style={{ flex: '1 1 400px', height: '60vh', overflow: 'hidden', position: 'relative' }}>
+                  <div style={{ flex: '1 1 300px', height: 'clamp(250px, 40dvh, 60vh)', overflow: 'hidden', position: 'relative' }}>
                      <img 
                        src={feature.image} 
                        alt={feature.title} 

@@ -4,6 +4,14 @@ import { MapPin, Phone, Mail, Instagram } from 'lucide-react';
 
 const ContactSection = () => {
   const targetRef = useRef(null);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -58,8 +66,8 @@ const ContactSection = () => {
             boxShadow: '-10px 0 50px rgba(0,0,0,0.5)' // add a small shadow to make the curtain edge distinct
           }}
         >
-          <div className="container" style={{ width: '100%' }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4rem' }}>
+          <div className="container" style={{ width: '100%', padding: '0 20px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'clamp(1.5rem, 5vh, 4rem)', justifyContent: 'center' }}>
 
               <div style={{ flex: '1 1 400px' }}>
                 <h2 className="text-large" style={{ color: 'var(--color-black)', marginBottom: '2rem' }}>¿EMPEZAMOS?</h2>
@@ -84,41 +92,41 @@ const ContactSection = () => {
                 </form>
               </div>
 
-              <div style={{ flex: '1 1 300px', display: 'flex', flexDirection: 'column', gap: '2rem', paddingTop: '1rem' }}>
+              <div style={{ flex: '1 1 300px', display: 'flex', flexDirection: 'column', gap: 'clamp(0.5rem, 1.5vh, 2rem)', paddingTop: '0.5rem' }}>
                 <div style={contactItemStyle}>
-                  <MapPin color="var(--color-black)" />
+                  <MapPin color="var(--color-black)" size={isMobile ? 20 : 24} />
                   <div>
-                    <p className="text-caption" style={{ color: 'var(--color-black)' }}>DÓNDE ESTAMOS</p>
-                    <p className="text-body" style={{ color: 'var(--color-black)', opacity: 0.7 }}>C. Mata, 8, 38611 San Isidro<br />Santa Cruz de Tenerife</p>
+                    <p className="text-caption" style={{ color: 'var(--color-black)', fontSize: '0.75rem' }}>DÓNDE ESTAMOS</p>
+                    <p className="text-body" style={{ color: 'var(--color-black)', opacity: 0.7, fontSize: '0.9rem' }}>C. Mata, 8, 38611 San Isidro<br />Santa Cruz de Tenerife</p>
                   </div>
                 </div>
 
                 <div style={contactItemStyle}>
-                  <Phone color="var(--color-black)" />
+                  <Phone color="var(--color-black)" size={isMobile ? 20 : 24} />
                   <div>
-                    <p className="text-caption" style={{ color: 'var(--color-black)' }}>LLÁMANOS</p>
-                    <p className="text-body" style={{ color: 'var(--color-black)', opacity: 0.7 }}>922 39 40 50</p>
+                    <p className="text-caption" style={{ color: 'var(--color-black)', fontSize: '0.75rem' }}>LLÁMANOS</p>
+                    <p className="text-body" style={{ color: 'var(--color-black)', opacity: 0.7, fontSize: '0.9rem' }}>922 39 40 50</p>
                   </div>
                 </div>
 
                 <div style={contactItemStyle}>
-                  <Mail color="var(--color-black)" />
+                  <Mail color="var(--color-black)" size={isMobile ? 20 : 24} />
                   <div>
-                    <p className="text-caption" style={{ color: 'var(--color-black)' }}>ESCRÍBENOS</p>
-                    <p className="text-body" style={{ color: 'var(--color-black)', opacity: 0.7 }}>yanesgallardo@hotmail.com</p>
+                    <p className="text-caption" style={{ color: 'var(--color-black)', fontSize: '0.75rem' }}>ESCRÍBENOS</p>
+                    <p className="text-body" style={{ color: 'var(--color-black)', opacity: 0.7, fontSize: '0.9rem' }}>yanesgallardo@hotmail.com</p>
                   </div>
                 </div>
 
                 <div style={contactItemStyle}>
-                  <Instagram color="var(--color-black)" />
+                  <Instagram color="var(--color-black)" size={isMobile ? 20 : 24} />
                   <div>
-                    <p className="text-caption" style={{ color: 'var(--color-black)' }}>SÍGUENOS</p>
-                    <p className="text-body" style={{ color: 'var(--color-black)', opacity: 0.7 }}>@academiayanesgallardo1</p>
+                    <p className="text-caption" style={{ color: 'var(--color-black)', fontSize: '0.75rem' }}>SÍGUENOS</p>
+                    <p className="text-body" style={{ color: 'var(--color-black)', opacity: 0.7, fontSize: '0.9rem' }}>@academiayanesgallardo1</p>
                   </div>
                 </div>
 
-                <div style={{ marginTop: 'auto', paddingTop: '2rem', borderTop: '1px solid rgba(0,0,0,0.1)' }}>
-                  <p className="text-caption" style={{ color: 'var(--color-black)', opacity: 0.5 }}>
+                <div style={{ marginTop: 'auto', paddingTop: '1rem', borderTop: '1px solid rgba(0,0,0,0.1)' }}>
+                  <p className="text-caption" style={{ color: 'var(--color-black)', opacity: 0.5, fontSize: '0.7rem' }}>
                     ACADEMIA YANES GALLARDO © {new Date().getFullYear()}
                   </p>
                 </div>

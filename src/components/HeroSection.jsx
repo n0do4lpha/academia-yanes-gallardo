@@ -6,11 +6,8 @@ const sentence = {
   hidden: { opacity: 1 },
   visible: {
     opacity: 1,
-    transition: {
-      delay: 0.2,
-      staggerChildren: 0.1,
-    },
-  },
+    transition: { delay: 0.2, staggerChildren: 0.1 }
+  }
 };
 
 const letterAnim = {
@@ -19,7 +16,7 @@ const letterAnim = {
     opacity: 1,
     y: 0,
     transition: { type: 'spring', damping: 15, stiffness: 100 }
-  },
+  }
 };
 
 const HeroSection = () => {
@@ -31,9 +28,8 @@ const HeroSection = () => {
     e.preventDefault();
     const contactSection = document.getElementById('contacto');
     if (contactSection) {
-      const targetPos = contactSection.offsetTop + window.innerHeight;
       window.scrollTo({
-        top: targetPos,
+        top: contactSection.offsetTop + window.innerHeight,
         behavior: 'smooth'
       });
     }
@@ -42,43 +38,37 @@ const HeroSection = () => {
   return (
     <section className="section-black scene-layout snap-anchor" style={{ position: 'relative' }}>
       <motion.div style={{ position: 'absolute', inset: -50, zIndex: 0, y: yBackground, opacity: opacityBackground }}>
-        <img 
-          src="/hero-image.jpg" 
-          alt="Academia Yanes Gallardo"  
+        <img
+          src="/hero-image.jpg"
+          alt="Academia Yanes Gallardo"
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
       </motion.div>
 
-      <div className="container flex-center" style={{ 
-        position: 'relative', 
-        zIndex: 1, 
+      <div className="container flex-center" style={{
+        position: 'relative',
+        zIndex: 1,
         flexDirection: 'column',
-        justifyContent: 'center',
-        padding: '0 6vw'
+        justifyContent: 'center'
       }}>
         <motion.div
           variants={sentence}
           initial="hidden"
           animate="visible"
-          style={{ 
-            textAlign: 'center', 
-            display: 'flex', 
-            flexDirection: 'column', 
-            gap: '0', 
+          style={{
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0',
             marginBottom: '0.5rem',
-            width: '100%',
-            transform: 'scale(0.95)' // Slight shrink to fit extra padding
+            width: '100%'
           }}
         >
           {['ACADEMIA', 'YANES', 'GALLARDO'].map((word, wordIndex) => (
             <div key={wordIndex} style={{ overflow: 'hidden', lineHeight: 0.75, width: '100%' }}>
-              <motion.h1 
-                className="text-huge" 
-                style={{ 
-                  color: 'var(--color-pink)', 
-                  display: 'block',
-                  fontSize: 'clamp(1.5rem, 11vw, 15rem)' 
-                }}
+              <motion.h1
+                className="text-huge"
+                style={{ color: 'var(--color-pink)', display: 'block' }}
                 variants={letterAnim}
               >
                 {word}
@@ -86,6 +76,7 @@ const HeroSection = () => {
             </div>
           ))}
         </motion.div>
+
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -94,7 +85,7 @@ const HeroSection = () => {
             color: 'var(--color-white)',
             opacity: 0.85,
             textAlign: 'center',
-            maxWidth: '280px', 
+            maxWidth: '280px',
             marginBottom: '1rem',
             fontFamily: 'var(--font-primary)',
             fontSize: '0.8rem',
@@ -105,7 +96,7 @@ const HeroSection = () => {
             textTransform: 'uppercase'
           }}
         >
-          La formación que buscabas<br/>El futuro que te espera
+          La formación que buscabas<br />El futuro que te espera
         </motion.p>
 
         <motion.div
@@ -115,7 +106,7 @@ const HeroSection = () => {
         >
           <button onClick={scrollToContact} className="hero-btn" style={{ border: 'none', cursor: 'pointer' }}>
             <span>INSCRÍBETE AHORA</span>
-            <ArrowDownRight strokeWidth={3} />
+            <ArrowDownRight strokeWidth={3} size={20} />
           </button>
         </motion.div>
       </div>

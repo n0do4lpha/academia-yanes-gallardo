@@ -5,19 +5,22 @@ import { Scissors, Sparkles, BookOpen } from 'lucide-react';
 const services = [
   {
     id: 1,
-    icon: <Scissors size={40} color="var(--color-pink)" />,
+    icon: <Scissors size={24} color="var(--color-pink)" />,
+    desktopIcon: <Scissors size={40} color="var(--color-pink)" />,
     title: "CORTE & COLOR",
     description: "Dominarás las técnicas más actuales de corte, colorimetría avanzada y diseño de estilo."
   },
   {
     id: 2,
-    icon: <Sparkles size={40} color="var(--color-yellow)" />,
+    icon: <Sparkles size={24} color="var(--color-yellow)" />,
+    desktopIcon: <Sparkles size={40} color="var(--color-yellow)" />,
     title: "ESTÉTICA",
     description: "Maquillaje profesional, cuidado de la piel y las últimas tendencias en belleza integral."
   },
   {
     id: 3,
-    icon: <BookOpen size={40} color="var(--color-pink)" />,
+    icon: <BookOpen size={24} color="var(--color-pink)" />,
+    desktopIcon: <BookOpen size={40} color="var(--color-pink)" />,
     title: "GESTIÓN DE SALÓN",
     description: "No solo te enseñamos a cortar: aprende a llevar tu propio negocio al éxito rotundo."
   }
@@ -27,16 +30,14 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
+    transition: { staggerChildren: 0.2 }
   }
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { type: 'spring', damping: 20, stiffness: 100 }
   }
@@ -46,41 +47,38 @@ const ServicesSection = () => {
   return (
     <section className="section-black scene-layout snap-anchor">
       <div className="container" style={{ width: '100%', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ type: 'spring', damping: 15 }}
-          style={{ 
-            marginBottom: window.innerWidth < 768 ? '1.25rem' : '3rem', 
-            textAlign: 'center' 
-          }}
+          style={{ marginBottom: '1.25rem', textAlign: 'center' }}
         >
           <h2 className="text-large" style={{ color: 'var(--color-pink)' }}>¿QUÉ HACEMOS?</h2>
-          <p className="text-body" style={{ 
-            color: 'var(--color-white)', 
-            opacity: 0.8, 
-            marginTop: '0.5rem', 
-            maxWidth: '600px', 
+          <p className="text-body" style={{
+            color: 'var(--color-white)',
+            opacity: 0.8,
+            marginTop: '0.5rem',
+            maxWidth: '600px',
             margin: '0.5rem auto 0',
-            fontSize: 'clamp(0.85rem, 1.1rem, 1.25rem)'
+            fontSize: 'clamp(0.85rem, 2vw, 1.1rem)'
           }}>
             Aprende con los mejores. Especialízate en el sector de la belleza con una propuesta formativa 100% práctica y dinámica.
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           className="services-grid"
-          style={{ gap: '0.5rem', width: '100%' }}
         >
           {services.map((service) => (
-            <motion.div key={service.id} variants={itemVariants} className="card-service" style={{ padding: '1.25rem 1rem' }}>
-              <div style={{ marginBottom: '0.25rem' }}>{React.cloneElement(service.icon, { size: 24 })}</div>
-              <h3 className="text-body" style={{ fontSize: '1rem', fontFamily: 'var(--font-display)', color: 'var(--color-white)', marginBottom: '0.2rem' }}>
+            <motion.div key={service.id} variants={itemVariants} className="card-service">
+              <div className="mobile-only" style={{ marginBottom: '0.25rem' }}>{service.icon}</div>
+              <div className="desktop-only" style={{ marginBottom: '0.5rem' }}>{service.desktopIcon}</div>
+              <h3 className="text-body" style={{ fontSize: '0.95rem', fontFamily: 'var(--font-display)', color: 'var(--color-white)', marginBottom: '0.2rem' }}>
                 {service.title}
               </h3>
               <p className="text-body" style={{ color: 'var(--color-white)', opacity: 0.7, fontSize: '0.8rem', lineHeight: '1.2' }}>

@@ -5,7 +5,7 @@ import { MessageCircle } from 'lucide-react';
 const FloatingWhatsApp = () => {
   return (
     <motion.a
-      href="https://wa.me/34922394050" // Simulated Spanish format 
+      href="https://wa.me/34922394050"
       target="_blank"
       rel="noopener noreferrer"
       className="floating-whatsapp"
@@ -14,9 +14,10 @@ const FloatingWhatsApp = () => {
       transition={{ type: 'spring', delay: 1 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
+      aria-label="Contactar por WhatsApp"
     >
-      <div className="whatsapp-pulse"></div>
-      <MessageCircle size={32} color="white" />
+      <div className="whatsapp-pulse" />
+      <MessageCircle size={28} color="white" />
     </motion.a>
   );
 };

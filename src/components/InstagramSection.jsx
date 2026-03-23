@@ -53,7 +53,7 @@ const InstagramSection = () => {
         )}
       </div>
 
-      <div style={{ position: 'sticky', top: 0, height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden' }}>
+      <div className="scene-layout" style={{ position: 'sticky', top: 0 }}>
         
         <div className="container" style={{ textAlign: 'center', marginBottom: '5vh', zIndex: 10 }}>
            <a href="https://instagram.com/academiayanesgallardo1" target="_blank" rel="noopener noreferrer">

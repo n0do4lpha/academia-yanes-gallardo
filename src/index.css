@@ -21,14 +21,7 @@ html, body {
 
 html {
   scroll-behavior: smooth;
-  /* Scroll snap can be jarring on mobile if content varies in height */
-  scroll-snap-type: y proximity;
-}
-
-@media (min-width: 1024px) {
-  html {
-    scroll-snap-type: y mandatory;
-  }
+  scroll-snap-type: y mandatory;
 }
 
 body {
@@ -70,13 +63,19 @@ img, video {
 .snap-anchor {
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  /* MOBILE FIRST: Content is contained within the safe area, background fills the whole screen */
-  padding-top: env(safe-area-inset-top) !important;
-  padding-bottom: env(safe-area-inset-bottom) !important;
+}
+
+.scene-layout {
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   position: relative;
   overflow: hidden;
+  padding-top: env(safe-area-inset-top) !important;
+  padding-bottom: env(safe-area-inset-bottom) !important;
+  box-sizing: border-box;
 }
 
 /* Typography styles optimized for Mobile-First */

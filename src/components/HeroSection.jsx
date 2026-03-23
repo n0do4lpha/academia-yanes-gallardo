@@ -40,7 +40,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="section-black min-h-screen snap-anchor" style={{ position: 'relative', overflow: 'hidden' }}>
+    <section className="section-black scene-layout snap-anchor" style={{ position: 'relative' }}>
       <motion.div style={{ position: 'absolute', inset: -50, zIndex: 0, y: yBackground, opacity: opacityBackground }}>
         <img 
           src="/hero-image.jpg" 
@@ -49,7 +49,13 @@ const HeroSection = () => {
         />
       </motion.div>
 
-      <div className="container flex-center min-h-screen" style={{ position: 'relative', zIndex: 1, flexDirection: 'column' }}>
+      <div className="container flex-center" style={{ 
+        position: 'relative', 
+        zIndex: 1, 
+        flexDirection: 'column',
+        justifyContent: 'center',
+        padding: '0 6vw'
+      }}>
         <motion.div
           variants={sentence}
           initial="hidden"

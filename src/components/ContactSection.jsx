@@ -22,7 +22,7 @@ const ContactSection = () => {
         <div className="snap-anchor" style={{ position: 'absolute', top: '199vh', height: '1vh', width: '100%' }} />
       </div>
 
-      <div style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div className="scene-layout" style={{ position: 'sticky', top: 0 }}>
 
         {/* Background text to fill the black space before the yellow scene slides in */}
         <div style={{ position: 'absolute', inset: 0, zIndex: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '0 5vw' }}>

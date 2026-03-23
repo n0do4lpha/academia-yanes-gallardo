@@ -63,25 +63,30 @@ img, video {
 .snap-anchor {
   scroll-snap-align: start;
   scroll-snap-stop: always;
+  /* Support for iPhone safe areas - content will clear notch but background will fill it */
+  padding-top: env(safe-area-inset-top) !important;
+  padding-bottom: env(safe-area-inset-bottom) !important;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Typography styles matching reference */
 .text-huge {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 12vw, 15rem);
+  font-size: clamp(1.75rem, 9vw, 15rem); /* Extra compressed for mobile */
   text-transform: uppercase;
-  line-height: 0.85;
-  letter-spacing: -0.02em;
+  line-height: 0.82;
+  letter-spacing: -0.05em;
   margin: 0;
-  font-weight: 900;
+  font-weight: 1000;
 }
 
 .text-large {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 6vw, 4rem);
+  font-size: clamp(1.5rem, 5vw, 4rem);
   text-transform: uppercase;
-  line-height: 0.9;
-  letter-spacing: -0.05em;
+  line-height: 0.85;
+  letter-spacing: -0.08em;
   margin: 0;
 }
 
@@ -120,7 +125,9 @@ img, video {
 }
 
 .min-h-screen {
+  /* Using dynamic viewport units to account for mobile navigation bars */
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* Specific UI Elements */

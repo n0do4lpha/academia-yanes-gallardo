@@ -54,12 +54,12 @@ const ContactSection = () => {
             alignItems: 'center',
             width: '100vw',
             height: '100vh',
-            padding: '8vw 0 2vw 0',
+            padding: window.innerWidth < 768 ? 'clamp(2rem, 10vh, 5rem) 0 2vh 0' : '8vw 0 2vw 0',
             boxShadow: '-10px 0 50px rgba(0,0,0,0.5)' // add a small shadow to make the curtain edge distinct
           }}
         >
           <div className="container" style={{ width: '100%' }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4rem' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: window.innerWidth < 768 ? '1.5rem' : '4rem' }}>
 
               <div style={{ flex: '1 1 400px' }}>
                 <h2 className="text-large" style={{ color: 'var(--color-black)', marginBottom: '2rem' }}>¿EMPEZAMOS?</h2>

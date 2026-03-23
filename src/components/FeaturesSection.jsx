@@ -56,11 +56,10 @@ const FeaturesSection = () => {
               justifyContent: 'center', 
               padding: '0 5vw' 
             }}>
-               
-               <div style={{ 
+                              <div style={{ 
                   display: 'flex', 
                   flexDirection: window.innerWidth < 768 ? 'column' : 'row',
-                  gap: 'clamp(1rem, 3vh, 4rem)', 
+                  gap: 'clamp(0.5rem, 2vh, 4rem)', 
                   alignItems: 'center', 
                   width: '100%', 
                   maxWidth: '1600px',
@@ -69,13 +68,14 @@ const FeaturesSection = () => {
                    
                    <div style={{ 
                      flex: window.innerWidth < 768 ? 'none' : '1 1 400px',
-                     textAlign: window.innerWidth < 768 ? 'center' : 'left'
+                     textAlign: window.innerWidth < 768 ? 'center' : 'left',
+                     padding: window.innerWidth < 768 ? '0 5vw' : '0'
                    }}>
-                      <h2 className="text-body" style={{ color: 'var(--color-black)', marginBottom: '0.5rem', fontWeight: 800, fontSize: '0.8rem' }}>POR QUÉ NOSOTROS — 0{idx + 1}</h2>
-                      <h3 className="text-huge" style={{ fontSize: 'clamp(2.5rem, 10vw, 6rem)', color: 'var(--color-black)' }}>
+                      <h2 className="text-body" style={{ color: 'var(--color-black)', marginBottom: '0.25rem', fontWeight: 800, fontSize: '0.7rem' }}>0{idx + 1} — NOSOTROS</h2>
+                      <h3 className="text-huge" style={{ fontSize: 'clamp(1.5rem, 9vw, 6rem)', color: 'var(--color-black)' }}>
                         {window.innerWidth < 768 ? feature.title : feature.title.split(' ').map((word, i) => <span key={i} style={{display: 'block'}}>{word}</span>)}
                       </h3>
-                      <p className="text-body" style={{ color: 'var(--color-black)', fontSize: 'clamp(0.9rem, 1.25rem, 1.25rem)', marginTop: 'clamp(0.5rem, 2vh, 2rem)', maxWidth: '500px' }}>
+                      <p className="text-body" style={{ color: 'var(--color-black)', fontSize: 'clamp(0.8rem, 1rem, 1.25rem)', marginTop: '0.5rem', maxWidth: '400px', margin: '0.5rem auto 0' }}>
                         {feature.desc}
                       </p>
                    </div>
@@ -83,10 +83,11 @@ const FeaturesSection = () => {
                    {/* Feature Image with tighter mobile padding */}
                    <div style={{ 
                      flex: window.innerWidth < 768 ? 'none' : '1 1 400px', 
-                     width: window.innerWidth < 768 ? '85vw' : 'auto',
-                     height: window.innerWidth < 768 ? '35vh' : '60vh', 
+                     width: window.innerWidth < 768 ? '80vw' : 'auto',
+                     height: window.innerWidth < 768 ? '25vh' : '60vh', 
                      overflow: 'hidden', 
-                     position: 'relative' 
+                     position: 'relative',
+                     marginTop: window.innerWidth < 768 ? '0.5rem' : '0'
                    }}>
                       <img 
                         src={feature.image} 
@@ -94,7 +95,7 @@ const FeaturesSection = () => {
                         style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: feature.position || 'center' }} 
                       />
                       {/* Overlay for aesthetic */}
-                      <div style={{ position: 'absolute', inset: 0, border: '4px solid var(--color-black)', pointerEvents: 'none' }}></div>
+                      <div style={{ position: 'absolute', inset: 0, border: '3px solid var(--color-black)', pointerEvents: 'none' }}></div>
                    </div>
 
                 </div>

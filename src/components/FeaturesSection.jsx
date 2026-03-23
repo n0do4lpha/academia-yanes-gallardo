@@ -20,6 +20,38 @@ const features = [
   }
 ];
 
+const SlideContent = ({ feature, idx }) => (
+  <>
+    <div style={{ textAlign: 'center', width: '100%' }}>
+      <p className="text-body" style={{ color: 'var(--color-black)', fontWeight: 800, fontSize: '0.75rem', marginBottom: '0.5rem' }}>
+        0{idx + 1} — NOSOTROS
+      </p>
+      <h3 className="text-huge" style={{ fontSize: 'clamp(2rem, 9vw, 6rem)', color: 'var(--color-black)', lineHeight: 0.9 }}>
+        {feature.title}
+      </h3>
+      <p className="text-body" style={{ color: 'var(--color-black)', fontSize: 'clamp(0.8rem, 2.5vw, 1.1rem)', marginTop: '0.75rem', lineHeight: 1.4, maxWidth: '400px', margin: '0.75rem auto 0' }}>
+        {feature.desc}
+      </p>
+    </div>
+
+    <div style={{
+      width: '85vw',
+      maxWidth: '500px',
+      height: '35vh',
+      overflow: 'hidden',
+      position: 'relative',
+      border: '3px solid var(--color-black)',
+      borderRadius: '4px'
+    }}>
+      <img
+        src={feature.image}
+        alt={feature.title}
+        style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: feature.position || 'center' }}
+      />
+    </div>
+  </>
+);
+
 const FeaturesSection = () => {
   const targetRef = useRef(null);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -36,59 +68,51 @@ const FeaturesSection = () => {
 
   if (!isDesktop) {
     return (
-      <section className="section-pink" id="nosotros" style={{
-        position: 'relative',
-        overflow: 'hidden',
-        paddingTop: 'calc(env(safe-area-inset-top, 0px) + 2rem)',
-        paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 2rem)'
-      }}>
-        {features.map((feature, idx) => (
-          <div key={idx} style={{
-            minHeight: '100vh',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: '3rem 5vw',
-            gap: '1.5rem'
-          }}>
-            <div style={{ textAlign: 'center', width: '100%' }}>
-              <p className="text-body" style={{ color: 'var(--color-black)', fontWeight: 800, fontSize: '0.75rem', marginBottom: '0.5rem' }}>
-                0{idx + 1} — NOSOTROS
-              </p>
-              <h3 className="text-huge" style={{
-                fontSize: 'clamp(2rem, 12vw, 4rem)',
-                color: 'var(--color-black)',
-                lineHeight: 0.9
-              }}>
-                {feature.title}
-              </h3>
-              <p className="text-body" style={{
-                color: 'var(--color-black)',
-                fontSize: '0.9rem',
-                marginTop: '0.75rem',
-                lineHeight: 1.4
-              }}>
-                {feature.desc}
-              </p>
-            </div>
-
-            <div style={{
-              width: '85vw',
-              height: '35vh',
-              overflow: 'hidden',
-              position: 'relative',
-              border: '3px solid var(--color-black)',
-              borderRadius: '4px'
+      <section className="section-pink" id="nosotros" style={{ position: 'relative', overflow: 'hidden' }}>
+        <div style={{
+          display: 'flex',
+          overflowX: 'auto',
+          overflowY: 'hidden',
+          scrollSnapType: 'x mandatory',
+          WebkitOverflowScrolling: 'touch',
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none'
+        }}>
+          {features.map((feature, idx) => (
+            <div key={idx} style={{
+              flexShrink: 0,
+              width: '100vw',
+              minHeight: '100vh',
+              scrollSnapAlign: 'start',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              padding: 'calc(env(safe-area-inset-top, 0px) + 3rem) 5vw calc(env(safe-area-inset-bottom, 0px) + 3rem)',
+              gap: '1.5rem'
             }}>
-              <img
-                src={feature.image}
-                alt={feature.title}
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: feature.position || 'center' }}
-              />
+              <SlideContent feature={feature} idx={idx} />
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        <div style={{
+          position: 'absolute',
+          bottom: 'calc(env(safe-area-inset-bottom, 0px) + 1rem)',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          display: 'flex',
+          gap: '8px'
+        }}>
+          {features.map((_, idx) => (
+            <div key={idx} style={{
+              width: '8px',
+              height: '8px',
+              borderRadius: '50%',
+              backgroundColor: idx === 0 ? 'var(--color-black)' : 'rgba(0,0,0,0.25)'
+            }} />
+          ))}
+        </div>
       </section>
     );
   }

@@ -13,16 +13,16 @@ const ContactSection = () => {
   const slideX = useTransform(scrollYProgress, [0, 1], ["-100vw", "0vw"]);
 
   return (
-    <section id="contacto" ref={targetRef} className="section-black" style={{ position: 'relative', height: '200dvh' }}>
+    <section id="contacto" ref={targetRef} className="section-black" style={{ position: 'relative', height: '200vh' }}>
       
       {/* Snap anchors to force resting at the start (pre-animation) and end (post-animation) */}
       <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
-        <div className="snap-anchor" style={{ position: 'absolute', top: 0, height: '1dvh', width: '100%' }} />
-        {/* We place the bottom anchor at 199dvh so the user rests perfectly at the end of the scroll block */}
-        <div className="snap-anchor" style={{ position: 'absolute', top: '199dvh', height: '1dvh', width: '100%' }} />
+        <div className="snap-anchor" style={{ position: 'absolute', top: 0, height: '1vh', width: '100%' }} />
+        {/* We place the bottom anchor at 199vh so the user rests perfectly at the end of the scroll block */}
+        <div className="snap-anchor" style={{ position: 'absolute', top: '199vh', height: '1vh', width: '100%' }} />
       </div>
 
-      <div style={{ position: 'sticky', top: 0, height: '100dvh', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         
         {/* Background text to fill the black space before the yellow scene slides in */}
         <div style={{ position: 'absolute', inset: 0, zIndex: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '0 5vw' }}>
@@ -51,21 +51,19 @@ const ContactSection = () => {
             backgroundColor: 'var(--color-yellow)', 
             color: 'var(--color-black)',
             display: 'flex', 
-            flexDirection: 'column',
+            alignItems: 'center',
             width: '100vw',
-            height: '100dvh',
-            padding: 'max(60px, 10vh) 0 5vh 0', // Adjusted safe top
-            overflowY: 'auto',
-            WebkitOverflowScrolling: 'touch',
-            boxShadow: '-10px 0 50px rgba(0,0,0,0.5)'
+            height: '100vh',
+            padding: '8vw 0 2vw 0',
+            boxShadow: '-10px 0 50px rgba(0,0,0,0.5)' // add a small shadow to make the curtain edge distinct
           }}
         >
-          <div className="container safe-bottom" style={{ width: '100%', paddingBottom: 'max(2rem, env(safe-area-inset-bottom))' }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'clamp(2rem, 5vh, 4rem)' }}>
+          <div className="container" style={{ width: '100%' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4rem' }}>
               
               <div style={{ flex: '1 1 400px' }}>
-                <h2 className="text-large" style={{ color: 'var(--color-black)', marginBottom: '1.5rem', fontSize: 'clamp(2rem, 8vw, 3.5rem)' }}>¿EMPEZAMOS?</h2>
-                <p className="text-body" style={{ color: 'var(--color-black)', opacity: 0.8, marginBottom: '2rem', fontSize: '1rem' }}>
+                <h2 className="text-large" style={{ color: 'var(--color-black)', marginBottom: '2rem' }}>¿EMPEZAMOS?</h2>
+                <p className="text-body" style={{ color: 'var(--color-black)', opacity: 0.8, marginBottom: '2rem' }}>
                   Facilítanos tus datos y nos pondremos en contacto contigo lo antes posible.
                 </p>
                 <form style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -78,7 +76,7 @@ const ContactSection = () => {
                       alignSelf: 'flex-start', 
                       border: '2px solid var(--color-black)', 
                       cursor: 'pointer', 
-                      marginTop: '0.5rem' 
+                      marginTop: '1rem' 
                     }}
                   >
                     ENVIAR
@@ -140,9 +138,9 @@ const inputStyle = {
   border: 'none',
   borderBottom: '2px solid var(--color-black)',
   color: 'var(--color-black)',
-  padding: '0.75rem 0',
+  padding: '1rem 0',
   fontFamily: 'var(--font-display)',
-  fontSize: 'clamp(1.2rem, 4vw, 1.5rem)',
+  fontSize: '1.5rem',
   outline: 'none',
   width: '100%',
   transition: 'border-color 0.3s'

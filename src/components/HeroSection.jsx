@@ -49,7 +49,7 @@ const HeroSection = () => {
         />
       </motion.div>
 
-      <div className="container flex-center min-h-screen" style={{ position: 'relative', zIndex: 1, flexDirection: 'column', height: '100dvh' }}>
+      <div className="container flex-center min-h-screen" style={{ position: 'relative', zIndex: 1, flexDirection: 'column' }}>
         <motion.div
           variants={sentence}
           initial="hidden"

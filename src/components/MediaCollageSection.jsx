@@ -11,13 +11,13 @@ const MediaCollageSection = () => {
   ];
 
   return (
-    <section className="section-black" style={{ padding: '8vh 0', overflow: 'hidden' }}>
+    <section className="section-black" style={{ padding: '10vw 0', overflow: 'hidden' }}>
       <div className="container">
-        <h2 className="text-large text-center" style={{ color: 'var(--color-pink)', marginBottom: '3rem', fontSize: 'clamp(1.8rem, 6vw, 3.5rem)' }}>
+        <h2 className="text-large text-center" style={{ color: 'var(--color-pink)', marginBottom: '4rem' }}>
           MÁS DE 20 AÑOS DE HISTORIA
         </h2>
         
-        <div style={{ display: 'flex', gap: '3vw', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '2vw', justifyContent: 'center', flexWrap: 'wrap' }}>
           {mediaItems.map((item, index) => (
             <motion.div 
               key={item.id}

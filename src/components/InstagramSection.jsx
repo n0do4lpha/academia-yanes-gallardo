@@ -35,46 +35,46 @@ const InstagramSection = () => {
     <section 
       ref={targetRef} 
       className="section-black snap-anchor" 
-      style={{ position: 'relative', height: '300dvh', backgroundColor: 'var(--color-black)' }}
+      style={{ position: 'relative', height: '300vh', backgroundColor: 'var(--color-black)' }}
     >
       <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
         {isDesktop ? (
           /* Desktop: Low-friction snap track. Prevents skipping the section and prevents reverse-jump, 
              but simulates completely free scroll without the "magnet" leaping effect. */
           Array.from({ length: 30 }).map((_, i) => (
-            <div key={i} style={{ scrollSnapAlign: 'start', scrollSnapStop: 'normal', position: 'absolute', top: `${i * 10}dvh`, height: '10dvh', width: '100%' }} />
+            <div key={i} style={{ scrollSnapAlign: 'start', scrollSnapStop: 'normal', position: 'absolute', top: `${i * 10}vh`, height: '10vh', width: '100%' }} />
           ))
         ) : (
-          /* Mobile: Strict 100dvh snaps at start and end for tight mobile swiping */
+          /* Mobile: Strict 100vh snaps at start and end for tight mobile swiping */
           <>
-            <div className="snap-anchor" style={{ position: 'absolute', top: 0, height: '100dvh', width: '100%' }} />
-            <div className="snap-anchor" style={{ position: 'absolute', top: '200dvh', height: '100dvh', width: '100%' }} />
+            <div className="snap-anchor" style={{ position: 'absolute', top: 0, height: '100vh', width: '100%' }} />
+            <div className="snap-anchor" style={{ position: 'absolute', top: '200vh', height: '100vh', width: '100%' }} />
           </>
         )}
       </div>
 
-      <div style={{ position: 'sticky', top: 0, height: '100dvh', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden' }}>
+      <div style={{ position: 'sticky', top: 0, height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden' }}>
         
-        <div className="container" style={{ textAlign: 'center', marginBottom: 'clamp(1rem, 3vh, 3rem)', zIndex: 10 }}>
+        <div className="container" style={{ textAlign: 'center', marginBottom: '5vh', zIndex: 10 }}>
            <a href="https://instagram.com/academiayanesgallardo1" target="_blank" rel="noopener noreferrer">
-             <h2 className="text-large" style={{ color: 'var(--color-yellow)', fontSize: 'clamp(1.5rem, 6vw, 3rem)' }}>
+             <h2 className="text-large" style={{ color: 'var(--color-yellow)' }}>
                 SÍGUENOS EN <br /><span style={{ textDecoration: 'underline' }}>@ACADEMIAYANESGALLARDO1</span>
              </h2>
            </a>
         </div>
         
         {/* Horizontal Track Container */}
-        <div style={{ width: '100vw', overflow: 'hidden', marginBottom: 'clamp(1rem, 2vh, 2rem)' }}>
-          <motion.div style={{ x, display: 'flex', gap: '3vw', padding: '0 5vw', height: 'clamp(300px, 40vh, 50vh)', width: 'max-content' }}>
+        <div style={{ width: '100vw', overflow: 'hidden', marginBottom: 'clamp(1rem, 4vh, 3rem)' }}>
+          <motion.div style={{ x, display: 'flex', gap: '5vw', padding: '0 5vw', height: '50vh', width: 'max-content' }}>
             {instaPosts.map((src, idx) => (
               <motion.a 
                 href="https://instagram.com/academiayanesgallardo1" target="_blank" rel="noopener noreferrer"
                 key={idx}
-                whileHover={{ scale: 0.95 }}
+                whileHover={{ scale: 0.95, zIndex: 10 }}
                 transition={{ type: 'spring', damping: 20 }}
                 style={{ 
                   flexShrink: 0, 
-                  width: 'clamp(260px, 50vw, 400px)', 
+                  width: 'clamp(280px, 60vw, 400px)', // Adaptive size
                   height: '100%', 
                   display: 'block',
                   border: '2px solid var(--color-pink)' 

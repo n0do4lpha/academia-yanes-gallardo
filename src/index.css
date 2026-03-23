@@ -114,8 +114,7 @@ img, video {
 }
 
 .min-h-screen {
-  min-height: 100vh; /* Fallback */
-  min-height: 100dvh;
+  min-height: 100vh;
 }
 
 /* Specific UI Elements */
@@ -175,13 +174,12 @@ img, video {
 .services-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 @media (min-width: 768px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
   }
 }
 
@@ -194,16 +192,10 @@ img, video {
 .card-service {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--color-pink);
-  padding: 2.5rem 1.5rem;
+  padding: 3rem 2rem;
   border-radius: 24px;
   transition: all 0.3s ease;
   height: 100%;
-}
-
-@media (min-width: 768px) {
-  .card-service {
-    padding: 3rem 2rem;
-  }
 }
 
 .card-service:hover {
@@ -216,59 +208,3 @@ img, video {
     display: none !important;
   }
 }
-
-/* Safe areas for mobile notched devices */
-.safe-top {
-  padding-top: max(1.5rem, env(safe-area-inset-top));
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 0 1.25rem; /* Tighter margins for 390px width */
-  }
-  
-  .text-huge {
-    font-size: clamp(3rem, 15vw, 4rem);
-    line-height: 0.95;
-    letter-spacing: -0.01em;
-  }
-
-  .text-large {
-    font-size: clamp(1.8rem, 8vw, 2.8rem);
-  }
-
-  /* Compact padding for sections on small screens to fit more content */
-  .section-black, .section-pink {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-
-  /* Compact Hero Button for mobile */
-  .hero-btn {
-    padding: 0.8rem 1.5rem;
-    font-size: 1.25rem;
-    gap: 0.75rem;
-  }
-}
-
-/* Safe areas for mobile notched devices */
-.safe-top {
-  padding-top: max(1rem, env(safe-area-inset-top));
-}
-
-.safe-bottom {
-  padding-bottom: max(1rem, env(safe-area-inset-bottom));
-}
-
-/* Specific fix for notched iPhones landscape/portrait */
-@supports (padding-top: env(safe-area-inset-top)) {
-  .hero-container {
-    padding-top: env(safe-area-inset-top);
-  }
-}
-
-/* Global input refinements for mobile */
-input::placeholder {
-  opacity: 0.5;
-}
-

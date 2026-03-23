@@ -21,7 +21,14 @@ html, body {
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
+  /* Scroll snap can be jarring on mobile if content varies in height */
+  scroll-snap-type: y proximity;
+}
+
+@media (min-width: 1024px) {
+  html {
+    scroll-snap-type: y mandatory;
+  }
 }
 
 body {
@@ -63,31 +70,46 @@ img, video {
 .snap-anchor {
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  /* Support for iPhone safe areas - content will clear notch but background will fill it */
+  /* MOBILE FIRST: Content is contained within the safe area, background fills the whole screen */
   padding-top: env(safe-area-inset-top) !important;
   padding-bottom: env(safe-area-inset-bottom) !important;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Typography styles matching reference */
+/* Typography styles optimized for Mobile-First */
 .text-huge {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 9vw, 15rem); /* Extra compressed for mobile */
+  font-size: clamp(2rem, 15vw, 4rem); /* Smaller default for mobile */
   text-transform: uppercase;
-  line-height: 0.82;
+  line-height: 0.85;
   letter-spacing: -0.05em;
   margin: 0;
   font-weight: 1000;
 }
 
+@media (min-width: 1024px) {
+  .text-huge {
+    font-size: clamp(4rem, 15vw, 15rem);
+    letter-spacing: -0.02em;
+  }
+}
+
 .text-large {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 5vw, 4rem);
+  font-size: clamp(1.75rem, 7vw, 2.5rem);
   text-transform: uppercase;
   line-height: 0.85;
-  letter-spacing: -0.08em;
+  letter-spacing: -0.05em;
   margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .text-large {
+    font-size: clamp(2rem, 5vw, 4rem);
+  }
 }
 
 .text-body {
@@ -107,14 +129,15 @@ img, video {
 
 /* Layout Utilities */
 .container {
+  width: 100%;
   max-width: 1600px;
   margin: 0 auto;
-  padding: 0 4vw;
+  padding: 0 6vw; /* Tighter mobile padding */
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1024px) {
   .container {
-    padding: 0 6vw;
+    padding: 0 4vw;
   }
 }
 

@@ -45,7 +45,7 @@ const QuickNav = () => {
 
   const buttonBaseStyle = {
     position: 'fixed',
-    top: '1.5rem',
+    top: 'calc(1rem + env(safe-area-inset-top))',
     zIndex: 1000,
     background: 'rgba(255, 255, 255, 0.1)',
     backdropFilter: 'blur(10px)',

@@ -75,15 +75,15 @@ const ServicesSection = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           className="services-grid"
-          style={{ gap: window.innerWidth < 768 ? '0.75rem' : '2rem' }}
+          style={{ gap: '0.5rem', width: '100%' }}
         >
           {services.map((service) => (
-            <motion.div key={service.id} variants={itemVariants} className="card-service" style={{ padding: window.innerWidth < 768 ? '1.5rem 1.25rem' : '3rem 2rem' }}>
-              <div style={{ marginBottom: '0.5rem' }}>{React.cloneElement(service.icon, { size: window.innerWidth < 768 ? 28 : 40 })}</div>
-              <h3 className="text-body" style={{ fontSize: '1.15rem', fontFamily: 'var(--font-display)', color: 'var(--color-white)', marginBottom: '0.35rem' }}>
+            <motion.div key={service.id} variants={itemVariants} className="card-service" style={{ padding: '1.25rem 1rem' }}>
+              <div style={{ marginBottom: '0.25rem' }}>{React.cloneElement(service.icon, { size: 24 })}</div>
+              <h3 className="text-body" style={{ fontSize: '1rem', fontFamily: 'var(--font-display)', color: 'var(--color-white)', marginBottom: '0.2rem' }}>
                 {service.title}
               </h3>
-              <p className="text-body" style={{ color: 'var(--color-white)', opacity: 0.7, fontSize: '0.9rem', lineHeight: '1.3' }}>
+              <p className="text-body" style={{ color: 'var(--color-white)', opacity: 0.7, fontSize: '0.8rem', lineHeight: '1.2' }}>
                 {service.description}
               </p>
             </motion.div>

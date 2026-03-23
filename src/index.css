@@ -73,8 +73,9 @@ img, video {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  padding-top: env(safe-area-inset-top) !important;
-  padding-bottom: env(safe-area-inset-bottom) !important;
+  /* MOBILE FIRST: More pronounced "solid margins" to avoid content near Notch/Home-bar */
+  padding-top: calc(env(safe-area-inset-top) + 2rem) !important;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 3rem) !important;
   box-sizing: border-box;
 }
 

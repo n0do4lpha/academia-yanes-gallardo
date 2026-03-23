@@ -26,13 +26,7 @@ const FeaturesSection = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-66.6666%"]);
 
   return (
-    <section ref={targetRef} className="section-pink snap-anchor" style={{ position: 'relative', height: '300vh' }}>
-      <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
-        <div className="snap-anchor" style={{ height: '100vh' }} />
-        <div className="snap-anchor" style={{ height: '100vh' }} />
-        <div className="snap-anchor" style={{ height: '100vh' }} />
-      </div>
-
+    <section ref={targetRef} className="section-pink snap-anchor" style={{ position: 'relative', height: '300vh' }} id="nosotros">
       <div className="scene-layout" style={{ position: 'sticky', top: 0, display: 'flex', alignItems: 'center' }}>
         <motion.div style={{ x, display: 'flex', width: '300vw', height: '100%' }}>
           {features.map((feature, idx) => (

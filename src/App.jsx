@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <QuickNav />
-      <main style={{ position: 'relative' }}>
+      <main>
         <HeroSection />
         <ServicesSection />
         <FeaturesSection />

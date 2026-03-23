@@ -5,8 +5,6 @@
   --color-pink-light: rgb(255, 110, 173);
   --color-yellow: rgb(249, 239, 144);
   
-  --spacing-mobile: 1.25rem;
-  
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-display: 'Impact', 'Arial Black', sans-serif;
 }
@@ -50,22 +48,16 @@ img, video {
 .section-black {
   background-color: var(--color-black);
   color: var(--color-pink);
-  position: relative;
-  overflow-x: clip;
 }
 
 .section-pink {
   background-color: var(--color-pink);
   color: var(--color-black);
-  position: relative;
-  overflow-x: clip;
 }
 
 .section-white {
   background-color: var(--color-white);
   color: var(--color-black);
-  position: relative;
-  overflow-x: clip;
 }
 
 .snap-anchor {
@@ -108,21 +100,11 @@ img, video {
   font-weight: 700;
 }
 
-@media (max-width: 768px) {
-  .text-huge {
-    font-size: clamp(2.5rem, 12vw, 5rem);
-  }
-  .text-large {
-    font-size: clamp(1.75rem, 8vw, 3rem);
-  }
-}
-
 /* Layout Utilities */
 .container {
   max-width: 1600px;
   margin: 0 auto;
-  padding: 0 max(var(--spacing-mobile), 5vw);
-  position: relative;
+  padding: 0 5vw;
 }
 
 .flex-center {
@@ -132,11 +114,7 @@ img, video {
 }
 
 .min-h-screen {
-  min-height: 100dvh;
-}
-
-.h-screen {
-  height: 100dvh;
+  min-height: 100vh;
 }
 
 /* Specific UI Elements */
@@ -223,16 +201,6 @@ img, video {
 .card-service:hover {
   transform: translateY(-10px);
   background: rgba(255, 255, 255, 0.1);
-}
-
-@media (max-width: 768px) {
-  .card-service {
-    padding: 1.5rem 1rem;
-    border-radius: 16px;
-  }
-  .services-grid {
-    gap: 1rem;
-  }
 }
 
 @media (min-width: 1024px) {

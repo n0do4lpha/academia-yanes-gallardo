@@ -50,9 +50,9 @@ const TestimonialCard = ({ t }) => (
     backgroundColor: 'rgba(255,255,255,0.05)',
     border: `1px solid ${t.id % 2 === 0 ? 'var(--color-pink)' : 'var(--color-yellow)'}`,
     borderRadius: '20px',
-    padding: 'clamp(0.75rem, 2vh, 1rem)',
-    width: 'clamp(260px, 75vw, 300px)',
-    height: 'clamp(140px, 20vh, 180px)',
+    padding: '1rem',
+    width: 'clamp(260px, 70vw, 300px)',
+    height: '180px',
     display: 'flex',
     flexDirection: 'column',
     flexShrink: 0,
@@ -110,15 +110,15 @@ const TestimonialsSection = () => {
   return (
     <section ref={targetRef} className="section-black snap-anchor" style={{ 
       position: 'relative',
-      height: '300dvh', // Increased scrollable room
+      height: '300vh', // Increased scrollable room
       backgroundColor: 'var(--color-black)'
     }}>
       {/* Internal snap anchors for a longer, more detailed scroll experience */}
       <div className="snap-anchor" style={{ position: 'absolute', top: 0 }} />
-      <div className="snap-anchor" style={{ position: 'absolute', top: '100dvh' }} />
-      <div className="snap-anchor" style={{ position: 'absolute', top: '200dvh' }} />
+      <div className="snap-anchor" style={{ position: 'absolute', top: '100vh' }} />
+      <div className="snap-anchor" style={{ position: 'absolute', top: '200vh' }} />
 
-      <div style={{ position: 'sticky', top: 0, height: '100dvh', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden', padding: 'clamp(1rem, 3vh, 5rem) 0' }}>
+      <div style={{ position: 'sticky', top: 0, height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden', padding: 'clamp(1rem, 3vh, 5rem) 0' }}>
         <div className="container" style={{ marginBottom: 'clamp(1.5rem, 3vh, 3rem)', textAlign: 'center' }}>
           <h2 className="text-large" style={{ color: 'var(--color-pink)' }}>LO QUE DICEN</h2>
         </div>
@@ -126,30 +126,29 @@ const TestimonialsSection = () => {
         <div style={{ 
           display: 'flex', 
           flexDirection: 'column', 
-          gap: 'clamp(0.5rem, 1vh, 2rem)',
+          gap: 'clamp(1rem, 2vh, 2rem)',
           paddingTop: '15px',    // prevents the top scale hover from being clipped
           paddingBottom: '15px', // gives room for the card's drop shadow and triangle pointer
           WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
-          maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
-          position: 'relative'
+          maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
         }}>
           {/* ROW 1: Unique speed and start point */}
-          <motion.div style={{ display: 'flex', gap: '1.5rem', width: 'max-content', x: speedRow1, paddingBottom: '10px', position: 'relative', paddingLeft: '15vw', paddingRight: '15vw', overflow: 'visible' }}>
+          <motion.div style={{ display: 'flex', gap: '1rem', width: 'max-content', x: speedRow1, paddingBottom: '10px' }}>
             {row1.map(t => <TestimonialCard key={t.id} t={t} />)}
           </motion.div>
 
           {/* ROW 2: Unique speed and start point */}
-          <motion.div style={{ display: 'flex', gap: '1.5rem', width: 'max-content', x: speedRow2, paddingBottom: '10px', position: 'relative', paddingLeft: '15vw', paddingRight: '15vw', overflow: 'visible' }}>
+          <motion.div style={{ display: 'flex', gap: '1rem', width: 'max-content', x: speedRow2, paddingBottom: '10px' }}>
             {row2.map(t => <TestimonialCard key={t.id} t={t} />)}
           </motion.div>
 
           {/* ROW 3: Unique speed and start point (Hidden on Desktop) */}
-          <motion.div className="mobile-only-row" style={{ display: 'flex', gap: '1.5rem', width: 'max-content', x: speedRow3, paddingBottom: '10px', position: 'relative', paddingLeft: '15vw', paddingRight: '15vw', overflow: 'visible' }}>
+          <motion.div className="mobile-only-row" style={{ display: 'flex', gap: '1rem', width: 'max-content', x: speedRow3, paddingBottom: '10px' }}>
             {row3.map(t => <TestimonialCard key={t.id} t={t} />)}
           </motion.div>
         </div>
 
-        <div className="container" style={{ marginTop: 'clamp(0.5rem, 2vh, 4rem)', display: 'flex', justifyContent: 'center' }}>
+        <div className="container" style={{ marginTop: 'clamp(1rem, 3vh, 4rem)', display: 'flex', justifyContent: 'center' }}>
           <a 
             href="https://www.google.com/maps/place/Academia+De+Peluqueria+Yanes+Gallardo/@36.2166922,-5.4727197,14z/data=!4m8!3m7!1s0xc6a9e4a16807ef9:0x1053ee7d07869969!8m2!3d28.0775503!4d-16.5597914!9m1!1b1!16s%2Fg%2F1q5bmp99l?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D" 
             target="_blank" 

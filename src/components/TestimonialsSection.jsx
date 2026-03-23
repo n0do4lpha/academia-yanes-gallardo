@@ -115,10 +115,10 @@ const TestimonialsSection = () => {
     }}>
       {/* Internal snap anchors for a longer, more detailed scroll experience */}
       <div className="snap-anchor" style={{ position: 'absolute', top: 0 }} />
-      <div className="snap-anchor" style={{ position: 'absolute', top: '100vh' }} />
+      <div className="snap-anchor" style={{ position: 'absolute', top: '100dvh' }} />
       <div className="snap-anchor" style={{ position: 'absolute', top: '200vh' }} />
 
-      <div style={{ position: 'sticky', top: 0, height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden', padding: 'clamp(1rem, 3vh, 5rem) 0' }}>
+      <div style={{ position: 'sticky', top: 0, height: '100dvh', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden', padding: 'clamp(1rem, 3vh, 5rem) 0' }}>
         <div className="container" style={{ marginBottom: 'clamp(1.5rem, 3vh, 3rem)', textAlign: 'center' }}>
           <h2 className="text-large" style={{ color: 'var(--color-pink)' }}>LO QUE DICEN</h2>
         </div>

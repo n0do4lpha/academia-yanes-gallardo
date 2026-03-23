@@ -47,15 +47,15 @@ const InstagramSection = () => {
         ) : (
           /* Mobile: Strict 100vh snaps at start and end for tight mobile swiping */
           <>
-            <div className="snap-anchor" style={{ position: 'absolute', top: 0, height: '100vh', width: '100%' }} />
-            <div className="snap-anchor" style={{ position: 'absolute', top: '200vh', height: '100vh', width: '100%' }} />
+            <div className="snap-anchor" style={{ position: 'absolute', top: 0, height: '100dvh', width: '100%' }} />
+            <div className="snap-anchor" style={{ position: 'absolute', top: '200dvh', height: '100dvh', width: '100%' }} />
           </>
         )}
       </div>
 
-      <div style={{ position: 'sticky', top: 0, height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden' }}>
+      <div style={{ position: 'sticky', top: 0, height: '100dvh', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden' }}>
         
-        <div className="container" style={{ textAlign: 'center', marginBottom: '5vh', zIndex: 10 }}>
+        <div className="container" style={{ textAlign: 'center', marginBottom: '5dvh', zIndex: 10 }}>
            <a href="https://instagram.com/academiayanesgallardo1" target="_blank" rel="noopener noreferrer">
              <h2 className="text-large" style={{ color: 'var(--color-yellow)' }}>
                 SÍGUENOS EN <br /><span style={{ textDecoration: 'underline' }}>@ACADEMIAYANESGALLARDO1</span>

@@ -44,7 +44,7 @@ const itemVariants = {
 
 const ServicesSection = () => {
   return (
-    <section className="section-black snap-anchor" style={{ padding: '10vw 0', minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
+    <section className="section-black snap-anchor" style={{ padding: '10vw 0', minHeight: '100dvh', display: 'flex', alignItems: 'center' }}>
       <div className="container">
         <motion.div 
           initial={{ opacity: 0, y: 50 }}

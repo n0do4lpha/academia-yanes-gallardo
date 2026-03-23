@@ -5,6 +5,8 @@
   --color-pink-light: rgb(255, 110, 173);
   --color-yellow: rgb(249, 239, 144);
   
+  --spacing-mobile: 1.25rem;
+  
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-display: 'Impact', 'Arial Black', sans-serif;
 }
@@ -104,7 +106,7 @@ img, video {
 .container {
   max-width: 1600px;
   margin: 0 auto;
-  padding: 0 5vw;
+  padding: 0 max(var(--spacing-mobile), 5vw);
 }
 
 .flex-center {
@@ -114,7 +116,11 @@ img, video {
 }
 
 .min-h-screen {
-  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.h-screen {
+  height: 100dvh;
 }
 
 /* Specific UI Elements */

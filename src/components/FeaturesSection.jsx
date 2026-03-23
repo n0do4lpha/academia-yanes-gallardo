@@ -33,16 +33,16 @@ const FeaturesSection = () => {
 
   return (
     // Tall container creates the scrollable area
-    <section ref={targetRef} className="section-pink snap-anchor" style={{ position: 'relative', height: '300vh' }}>
-      {/* Inner snap anchors to ensure we snap to each 100vh step */}
+    <section ref={targetRef} className="section-pink snap-anchor" style={{ position: 'relative', height: '300dvh' }}>
+      {/* Inner snap anchors to ensure we snap to each 100dvh step */}
       <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
-        <div className="snap-anchor" style={{ height: '100vh' }} />
-        <div className="snap-anchor" style={{ height: '100vh' }} />
-        <div className="snap-anchor" style={{ height: '100vh' }} />
+        <div className="snap-anchor" style={{ height: '100dvh' }} />
+        <div className="snap-anchor" style={{ height: '100dvh' }} />
+        <div className="snap-anchor" style={{ height: '100dvh' }} />
       </div>
       
       {/* Sticky container locks the viewport while scrolling the tall container */}
-      <div style={{ position: 'sticky', top: 0, height: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
+      <div style={{ position: 'sticky', top: 0, height: '100dvh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
         
         {/* Animated horizontal track moving based on scrolling */}
         <motion.div style={{ x, display: 'flex', width: '300vw', height: '100%' }}>
